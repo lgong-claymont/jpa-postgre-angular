@@ -1,5 +1,14 @@
 <h1>{{title}}</h1>
-<!-- 
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul> 
+  <li><a routerLink="employees" routerLinkActive="active">Employee Component: Show All Employees</a></li>
+  <li><a routerLink="demo" routerLinkActive="active">Demo Component: Tour of Cities</a></li>  
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>
--->
+<!-- 
+<app-demo></app-demo>
 <app-employee></app-employee>
+-->

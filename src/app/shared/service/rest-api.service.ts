@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Employee } from '../shared/employee';
+import { Employee } from '../model/employee';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -28,7 +28,15 @@ export class RestApiService {
 
   // HttpClient API get() method => Fetch employees list
   showEmployees(): Observable<Employee> {
-    return this.http.get<Employee>(this.apiURL + '/showEmployees')
+    return this.http.get<Employee>(this.apiURL + '/jpa-postgre/showEmployees')
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+  // HttpClient API get() method => Fetch employees list
+  showDemo() :Observable<Object> {
+    return this.http.get(this.apiURL + '/jpa-postgre/getEmployeeById/1')
     .pipe(
       retry(1),
       catchError(this.handleError)

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { RestApiService } from "../shared/rest-api.service";
-import { Employee } from '../shared/employee';
+import { RestApiService } from "../shared/service/rest-api.service";
 import { Observable, throwError } from 'rxjs';
 
 @Component({
